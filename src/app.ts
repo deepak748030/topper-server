@@ -5,6 +5,7 @@ import contestRoutes from './api/v1/routes/contest.routes';
 import contestParticipationRoutes from './api/v1/routes/contestParticipation.routes';
 import transactionRoutes from './api/v1/routes/transaction.routes';
 import quizRoutes from './api/v1/routes/quiz.routes';
+import contestResultRoutes from './api/v1/routes/contestResult.routes';
 import { connectDB } from './config/db';
 import { config } from './config/env';
 import { logger } from './utils/logger';
@@ -26,6 +27,7 @@ app.use('/api/v1/contests', contestRoutes);
 app.use('/api/v1/contest-participation', contestParticipationRoutes);
 app.use('/api/v1/transactions', transactionRoutes);
 app.use('/api/v1/quizzes', quizRoutes);
+app.use('/api/v1/contest-result', contestResultRoutes);
 
 
 // 404 handler
