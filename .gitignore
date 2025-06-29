@@ -6,7 +6,7 @@
 ```gitignore
 # Node
 node_modules/
-dist/
+# dist/
 .env
 uploads/
 
