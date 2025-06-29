@@ -33,3 +33,5 @@ export const getAllContestsCtrl = asyncHandler(async (_req: Request, res: Respon
     const contests = await getAllContests();
     sendResponse(res, true, 'All contests fetched', contests);
 });
+
+

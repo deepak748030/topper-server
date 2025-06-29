@@ -2,6 +2,7 @@ import express from 'express';
 import userRoutes from './api/v1/routes/user.routes';
 import walletRoutes from './api/v1/routes/wallet.routes';
 import contestRoutes from './api/v1/routes/contest.routes';
+import contestParticipationRoutes from './api/v1/routes/contestParticipation.routes';
 import { connectDB } from './config/db';
 import { config } from './config/env';
 import { logger } from './utils/logger';
@@ -20,6 +21,8 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 app.use('/api/v1/users', userRoutes);
 app.use('/api/v1/wallets', walletRoutes);
 app.use('/api/v1/contests', contestRoutes);
+app.use('/api/v1/contest-participation', contestParticipationRoutes);
+
 
 // 404 handler
 app.use((_req, _res, next) => {
