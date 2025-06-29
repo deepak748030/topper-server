@@ -3,6 +3,7 @@ import userRoutes from './api/v1/routes/user.routes';
 import walletRoutes from './api/v1/routes/wallet.routes';
 import contestRoutes from './api/v1/routes/contest.routes';
 import contestParticipationRoutes from './api/v1/routes/contestParticipation.routes';
+import transactionRoutes from './api/v1/routes/transaction.routes';
 import { connectDB } from './config/db';
 import { config } from './config/env';
 import { logger } from './utils/logger';
@@ -22,6 +23,7 @@ app.use('/api/v1/users', userRoutes);
 app.use('/api/v1/wallets', walletRoutes);
 app.use('/api/v1/contests', contestRoutes);
 app.use('/api/v1/contest-participation', contestParticipationRoutes);
+app.use('/transactions', transactionRoutes);
 
 
 // 404 handler
