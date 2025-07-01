@@ -13,6 +13,10 @@ const options: swaggerJSDoc.Options = {
                 url: 'http://localhost:5000/api/v1',
                 description: 'Development server',
             },
+            {
+                url: 'https://topper-server.onrender.com/api/v1',
+                description: 'live server',
+            },
         ],
         components: {
             securitySchemes: {
