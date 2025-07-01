@@ -133,6 +133,45 @@ router.patch('/:id', upload.single('image'), asyncHandler(updateQuizCtrl));
  */
 router.delete('/:id', asyncHandler(deleteQuizCtrl));
 
+/**
+ * @swagger
+ * /quizzes:
+ *   get:
+ *     tags: [Quizzes]
+ *     summary: Get all quizzes
+ *     responses:
+ *       200:
+ *         description: List of all quizzes
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                 message:
+ *                   type: string
+ *                 data:
+ *                   type: array
+ *                   items:
+ *                     type: object
+ *                     properties:
+ *                       _id:
+ *                         type: string
+ *                       question:
+ *                         type: string
+ *                       options:
+ *                         type: array
+ *                         items:
+ *                           type: string
+ *                       correctAnswer:
+ *                         type: string
+ *                       contestId:
+ *                         type: string
+ *                       image:
+ *                         type: string
+ */
 router.get('/', getAllQuizzes);
+
 
 export default router;
