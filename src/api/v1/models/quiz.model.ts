@@ -14,8 +14,7 @@ const quizSchema = new Schema<IQuiz>(
         question: { type: String, required: true },
         options: {
             type: [String],
-            required: true,
-            validate: [(val: string[]) => val.length === 4, 'Must provide exactly 4 options']
+            required: true
         },
         correctAnswer: { type: String, required: true },
         image: { type: String },

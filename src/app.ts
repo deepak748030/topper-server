@@ -1,4 +1,5 @@
 import express from 'express';
+import cors from 'cors'; // ✅ Import cors
 import userRoutes from './api/v1/routes/user.routes';
 import walletRoutes from './api/v1/routes/wallet.routes';
 import contestRoutes from './api/v1/routes/contest.routes';
@@ -15,9 +16,9 @@ import swaggerUi from 'swagger-ui-express';
 import { swaggerSpec } from './swagger/swagger.config';
 import path from 'path';
 
-
-
 const app = express();
+
+app.use(cors()); // ✅ Enable CORS (allow all origins)
 app.use(express.json());
 app.use('/uploads', express.static(path.join(__dirname, '..', 'uploads')));
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
@@ -29,12 +30,10 @@ app.use('/api/v1/transactions', transactionRoutes);
 app.use('/api/v1/quizzes', quizRoutes);
 app.use('/api/v1/contest-result', contestResultRoutes);
 
-
 // 404 handler
 app.use((_req, _res, next) => {
     next(new ApiError(404, 'Not Found'));
 });
-
 
 // Global error handler
 app.use((err: any, _req: express.Request, res: express.Response, _next: any) => {

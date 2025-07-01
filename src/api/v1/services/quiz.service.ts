@@ -28,3 +28,8 @@ export const deleteQuiz = async (id: string) => {
     if (!quiz) throw new ApiError(404, 'Quiz not found');
     return await quiz.deleteOne();
 };
+
+export const getAllQuizzesService = async () => {
+    const quizzes = await Quiz.find();
+    return quizzes;
+};

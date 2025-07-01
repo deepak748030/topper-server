@@ -7,6 +7,7 @@ import {
     getQuizByContestIdCtrl,
     updateQuizCtrl,
     deleteQuizCtrl,
+    getAllQuizzes
 } from '../controllers/quiz.controller';
 
 const router = Router();
@@ -131,5 +132,7 @@ router.patch('/:id', upload.single('image'), asyncHandler(updateQuizCtrl));
  *         description: Quiz deleted
  */
 router.delete('/:id', asyncHandler(deleteQuizCtrl));
+
+router.get('/', getAllQuizzes);
 
 export default router;

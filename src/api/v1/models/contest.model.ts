@@ -5,8 +5,8 @@ export interface IContest extends Document {
   contestName: string;
   entryFees: number;
   type: 'public' | 'private' | 'multiplayer';
-  startTime: Date;
-  endTime: Date;
+  startTime: string;
+  endTime: string;
   date: string;
   totalQuestions: number;
   prizePool: number;
@@ -22,8 +22,8 @@ const ContestSchema = new Schema<IContest>(
     contestName: { type: String, required: true },
     entryFees: { type: Number, required: true },
     type: { type: String, enum: ['public', 'private', 'multiplayer'], required: true },
-    startTime: { type: Date, required: true },
-    endTime: { type: Date, required: true },
+    startTime: { type: String, required: true },
+    endTime: { type: String, required: true },
     date: { type: String, required: true },
     totalQuestions: { type: Number, required: true },
     prizePool: { type: Number, required: true },

@@ -12,3 +12,24 @@ export const deleteContest = async (id: string) =>
 
 export const getAllContests = async () =>
     Contest.find().sort('-createdAt');
+
+// Get contests where startTime > now
+export const getUpcomingContests = async () => {
+    const now = new Date().toISOString();
+    return Contest.find({ startTime: { $gt: now } }).sort('startTime');
+};
+
+// Get contests currently running
+export const getLiveContests = async () => {
+    const now = new Date().toISOString();
+    return Contest.find({
+        startTime: { $lte: now },
+        endTime: { $gte: now },
+    }).sort('startTime');
+};
+
+// Get contests that are finished
+export const getCompletedContests = async () => {
+    const now = new Date().toISOString();
+    return Contest.find({ endTime: { $lt: now } }).sort('-endTime');
+};

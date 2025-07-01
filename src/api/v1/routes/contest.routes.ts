@@ -4,6 +4,9 @@ import {
     updateContestCtrl,
     deleteContestCtrl,
     getAllContestsCtrl,
+    getCompletedContestsCtrl,
+    getLiveContestsCtrl,
+    getUpcomingContestsCtrl,
 } from '../controllers/contest.controller';
 import { asyncHandler } from '../../../utils/asyncHandler';
 
@@ -117,5 +120,47 @@ router.patch('/:id', asyncHandler(updateContestCtrl));
  *         description: Contest deleted
  */
 router.delete('/:id', asyncHandler(deleteContestCtrl));
+
+// ✅ Get upcoming contests
+/**
+ * @swagger
+ * /contests/upcoming:
+ *   get:
+ *     tags: [Contests]
+ *     summary: Get all upcoming contests
+ *     responses:
+ *       200:
+ *         description: Upcoming contests list
+ */
+router.get('/upcoming', asyncHandler(getUpcomingContestsCtrl));
+
+// ✅ Get live contests
+/**
+ * @swagger
+ * /contests/live:
+ *   get:
+ *     tags: [Contests]
+ *     summary: Get all live contests
+ *     responses:
+ *       200:
+ *         description: Live contests list
+ */
+router.get('/live', asyncHandler(getLiveContestsCtrl));
+
+// ✅ Get completed contests
+/**
+ * @swagger
+ * /contests/completed:
+ *   get:
+ *     tags: [Contests]
+ *     summary: Get all completed contests
+ *     responses:
+ *       200:
+ *         description: Completed contests list
+ */
+router.get('/completed', asyncHandler(getCompletedContestsCtrl));
+
+
+
 
 export default router;
