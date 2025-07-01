@@ -7,6 +7,7 @@ import {
     getCompletedContestsCtrl,
     getLiveContestsCtrl,
     getUpcomingContestsCtrl,
+    declareResultsCtrl,
 } from '../controllers/contest.controller';
 import { asyncHandler } from '../../../utils/asyncHandler';
 
@@ -160,7 +161,17 @@ router.get('/live', asyncHandler(getLiveContestsCtrl));
  */
 router.get('/completed', asyncHandler(getCompletedContestsCtrl));
 
+/**
+ * @swagger
+ * /contests/declare-results:
+ *   post:
+ *     tags: [Contests]
+ *     summary: Declare results for contests that ended
+ *     responses:
+ *       200:
+ *         description: Results declared for eligible contests
+ */
 
-
+router.post('/declare-results', asyncHandler(declareResultsCtrl));
 
 export default router;

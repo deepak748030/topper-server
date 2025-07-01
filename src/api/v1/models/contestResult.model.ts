@@ -14,6 +14,7 @@ export interface IContestResult extends Document {
     totalScore: number;
     timeTakenInSeconds: number;
     rank?: number;
+    prizeAmount?: number; // ✅ New field
 }
 
 const contestResultSchema = new Schema<IContestResult>(
@@ -31,6 +32,7 @@ const contestResultSchema = new Schema<IContestResult>(
         totalScore: { type: Number, default: 0 },
         timeTakenInSeconds: { type: Number, required: true },
         rank: { type: Number, default: null },
+        prizeAmount: { type: Number, default: 0 }, // ✅ Added here
     },
     { timestamps: true }
 );

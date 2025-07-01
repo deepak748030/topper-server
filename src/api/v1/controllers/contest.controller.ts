@@ -10,7 +10,8 @@ import {
     createContest,
     updateContest,
     deleteContest,
-    getAllContests
+    getAllContests,
+    declareResultsForLiveContests
 } from '../services/contest.service';
 
 export const createContestCtrl = asyncHandler(async (req: Request, res: Response) => {
@@ -56,4 +57,9 @@ export const getLiveContestsCtrl = asyncHandler(async (_req, res) => {
 export const getCompletedContestsCtrl = asyncHandler(async (_req, res) => {
     const contests = await getCompletedContests();
     sendResponse(res, true, 'Completed contests fetched', contests);
+});
+
+export const declareResultsCtrl = asyncHandler(async (_req: Request, res: Response) => {
+    const updatedContests = await declareResultsForLiveContests();
+    sendResponse(res, true, 'Results declared for completed contests', updatedContests);
 });
