@@ -4,6 +4,9 @@ import { asyncHandler } from '../../../utils/asyncHandler';
 import { ApiError } from '../../../utils/apiError';
 import { sendResponse } from '../../../utils/response';
 import {
+    getUpcomingContests,
+    getLiveContests,
+    getCompletedContests,
     createContest,
     updateContest,
     deleteContest,
@@ -39,13 +42,6 @@ export const getAllContestsCtrl = asyncHandler(async (_req: Request, res: Respon
     const contests = await getAllContests();
     sendResponse(res, true, 'All contests fetched', contests);
 });
-
-
-import {
-    getUpcomingContests,
-    getLiveContests,
-    getCompletedContests,
-} from '../services/contest.service';
 
 export const getUpcomingContestsCtrl = asyncHandler(async (_req, res) => {
     const contests = await getUpcomingContests();
